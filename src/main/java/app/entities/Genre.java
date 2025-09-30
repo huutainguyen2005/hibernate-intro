@@ -9,13 +9,14 @@ public class Genre {
     @Id
     @Column(name = "genreid")
     private int genreId;
-    private String name;
+    @Column(name = "name")
+    private String genreName;
 
     public Genre() {}
 
-    public Genre(int genreId, String name) {
+    public Genre(int genreId, String genreName) {
         this.genreId = genreId;
-        this.name = name;
+        this.genreName = genreName;
     }
 
     public int getGenreId() {
@@ -26,11 +27,11 @@ public class Genre {
         this.genreId = genreId;
     }
 
-    public String getName() {
-        return name;
+    public String getGenreName() {
+        return genreName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGenreName(String genreName) {
+        this.genreName = genreName;
     }
 }

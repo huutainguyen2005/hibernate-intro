@@ -2,7 +2,7 @@ package app;
 
 import app.entities.Artist;
 import app.entities.Genre;
-import app.service.GenreService;
+import app.services.GenreService;
 import org.springframework.data.domain.Page;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -66,5 +66,14 @@ public class App {
         //    System.out.println(String.format("ID: %d, name: %s", genre.getGenreId(), genre.getName()));
         //}
 
+        //Genre genre = genreService.getReferenceById(1);
+        //System.out.println(String.format("ID: %d, name: %s", genre.getGenreId(), genre.getName()));
+
+        //String name = genreService.getGenreNameById(10);
+        //System.out.println("Genre Name: " + name);
+
+        genreService.renameById(10, "Bolero");
+        String name = genreService.getGenreNameById(10);
+        System.out.println("Genre: " + name);
     }
 }

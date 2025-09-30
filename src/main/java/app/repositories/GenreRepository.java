@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface GenreRepository extends JpaRepository<Genre,Integer> {
-    //Bai tap:
+    //Bi tap:
     //1. Viết Entity Genre
     //2. Viết Repository cho Entity Genre
     //3. Viết Service cho Entity Genre
@@ -22,9 +22,13 @@ public interface GenreRepository extends JpaRepository<Genre,Integer> {
 
     Genre getByGenreId(int genreId);
 
-    Page<Genre> getByNameContainingIgnoreCase(String name, Pageable pageable);
+    Page<Genre> getByGenreNameContainingIgnoreCase(String name, Pageable pageable);
 
-    @Query(value = "select * from genre where len(name) < 5", nativeQuery = true)
+    //@Query(value = "select * from genre where len(name) < 5", nativeQuery = true)
+    //List<Genre> getByLengthOfCharacter();
+
+    //HQL - Hibernate Query Language
+    @Query(value = "select g from Genre g where len(g.genreName) < 5")
     List<Genre> getByLengthOfCharacter();
 
     //Hibernate Query Language (HQL)
